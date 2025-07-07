@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SolarTracker</title>
+    <link rel = "stylesheet" href = "style.css">
+</head>
+<body class="page-project">
+    <div id="navbar">
+        <button class="nav-btn" onclick="window.location='introduction.html'">
+            Introduction
+        </button>
+        <button class="nav-btn" onclick="window.location='history.html'">
+            history
+        </button>
+        <button class="nav-btn" onclick="window.location='modern-Use.html'">
+            modern-Use
+        </button>
+        <button class="nav-btn" onclick="window.location='Need.html'">
+            Need
+        </button>
+        <button class="nav-btn" onclick="window.location='Application.html'">
+            Application
+        </button>
+        <button class="nav-btn" onclick="window.location='OurProject.html'">
+            OurProject
+        </button>
+        
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <H1>OUR PROJECT</H1>
+    <h2 class="project">A) Introduction</h2>
+    <p>
+      The solar tracker project originated from the desire to optimize solar energy harvesting by aligning solar panels dynamically with the sun’s position throughout the day. Traditional fixed solar panels capture only a fraction of the available sunlight, limiting overall energy efficiency. The core theme of this project is to design an intelligent, automated solar tracking system using low-cost components that can enhance power generation without requiring expensive or complex machinery.
+    </p>
+    <br>
+    <p>
+      By employing microcontrollers, light-dependent resistors (LDRs), and servo motors, the project aims to build a compact, efficient solution that continuously adjusts the orientation of a solar panel to maximize incident sunlight. This real-time tracking maximizes output energy, making solar power systems more viable for residential and small-scale commercial use. Integration with an ESP01-12E Wi-Fi module further enables remote monitoring via a web interface, demonstrating the incorporation of IoT principles.
+    </p>
+    <br>
+    <p>
+      This project not only exemplifies the intersection of renewable energy and embedded systems but also serves as a practical learning platform for electronics, programming, and sustainable engineering.
+    </p>
+    <h2 class="project">B) Components Required</h2>
+    <table class="bordered">
+        <tr>
+            <th>Component</th>
+            <th>Specifications</th>
+        </tr>
+        <tr>
+            <th>Solar Panel</th>
+            <th>12V, 10W (typical small-scale panel)</th>
+        </tr>
+        <tr>
+            <th>Arduino Uno</th>
+            <th>Operating Voltage: 5V; Input Voltage (recommended): 7-12V</th>
+        </tr>
+        <tr>
+            <th>LDR Modules (2 units)</th>
+            <th>Resistance varies with light intensity; Operating voltage: 3.3-5V</th>
+        </tr>
+        <tr>
+            <th>Servo Motor</th>
+            <th>Servo Motor	Operating Voltage: 5V; Torque: ~1.5-2.5 kg·cm</th>
+        </tr>
+        <tr>
+            <th>LCD Display (16x2)</th>
+            <th>LCD Display (16x2)	Operating Voltage: 5V; Interface: I2C or Parallel</th>
+        </tr>
+        <tr>
+            <th>ESP01-12E Wi-Fi Module</th>
+            <th>Operating Voltage: 3.3V; Wi-Fi 802.11 b/g/n support</th>
+        </tr>
+        <tr>
+            <th>Jumper Wires</th>
+            <th>Standard male-to-male and male-to-female wires</th>
+        </tr>
+        <tr>
+            <th>Breadboard</th>
+            <th>Standard solderless breadboard for prototyping</th>
+        </tr>
+    </table>
+
+    <div id="box">
+      <span>
+        <img src="C:\Users\pramu\Downloads\solarimage1.jpg" height="250px">
+      </span>  
+    </div>
+    <div id="box">
+      <span>
+        <img src="C:\Users\pramu\Downloads\solartimage2.jpg" height="250px">
+      </span>
+    </div>
+    <h2 class="project">C) Connections</h2>
+    <p>
+      The connection setup can be visualized as a hierarchical tree:
+    </p>
+
+    <hi>
+      •	Arduino Uno (Central Controller)
+    </hi>
+    <h3>o	Power Supply</h3>
+    <p>
+        	5V regulated supply powering Arduino, LCD, servo motor
+    </p>
+    </p>
+        	3.3V supply for ESP01-12E (from voltage regulator or external source)
+    </p>
+    <br>
+    <h3>o	Sensors</h3>
+    <p>
+      	LDR1 connected to Analog Pin A0 (via voltage divider)
+    </p>
+    <p>
+      	LDR2 connected to Analog Pin A1 (via voltage divider)
+    </p>
+    <br>
+    <h3>o	Actuator</h3>
+    <p>
+      	Servo Motor connected to Digital PWM Pin 9
+    </p>
+    <br>
+    <h3>o	Display</h3>
+    <p>
+      	LCD connected via I2C pins (SDA to A4, SCL to A5) or parallel pins depending on model
+    </p>
+    <br>
+    <h3>o	Communication</h3>
+    <p>
+      	ESP01-12E connected via Software Serial (e.g., Pins 2 and 3 for RX and TX)
+    </p>
+    <p>
+      	Ensure logic level shifting for 3.3V compatibility with ESP01 module
+    </p>
+    <br>
+    <p>
+      The solar panel is mounted on a mechanical platform attached to the servo motor shaft. The sensor inputs from the LDRs inform the Arduino about light intensity differences, which it processes to adjust the servo motor’s angle to face the direction of maximum sunlight.
+    </p>
+    <br>
+    <h2 class="project">D) Operation and Working of the Project</h2>
+    <p>
+      <span class="bold">Solar Panel: </span>The 12V solar panel captures sunlight and converts it into electrical energy. Its efficiency depends largely on the angle relative to the sun’s rays.
+    </p>
+    <br>
+    <p>
+      <span class="bold">LDR Modules:  </span>The two LDR sensors detect light intensity from two different sides of the solar panel. Each LDR’s resistance changes inversely with light intensity. The Arduino reads analog voltage values from these sensors, allowing it to compare which side receives more sunlight.
+    </p>
+    <br>
+    <p>
+      <span class="bold">Arduino Uno:  </span>The microcontroller acts as the project’s brain. It continuously samples analog readings from the LDRs, computes the difference, and decides if the servo motor needs to rotate to better align the solar panel towards the sun. It also manages communication with the LCD for local display and the ESP01 for web-based monitoring.
+    </p>
+    <br>
+    <p>
+      <span class="bold">Servo Motor: </span>The servo motor receives PWM signals from the Arduino to rotate the solar panel platform. Its precision enables smooth and incremental adjustments to optimize solar exposure.
+    </p>
+    <br>
+    <p>
+      <span class="bold">LCD Display: </span>The LCD shows real-time data including sensor values, motor angle, and system status, providing local feedback to the user.
+    </p>
+    <br>
+    <p>
+      <span class="bold">ESP01-12E Wi-Fi Module: </span>This module connects the system to a local Wi-Fi network, allowing real-time data transmission to a website or dashboard. This enables remote monitoring of solar panel orientation and sunlight intensity, enhancing usability and maintenance.
+      Together, these components form a closed-loop control system that ensures the solar panel remains oriented toward the sun throughout the day, increasing total energy harvested compared to a static panel.
+    </p>
+    <br>
+    <h2 class="project">E) Arduino Code</h2>
+    
+
+<p>#include <Servo.h></p>
+<p>#include <LiquidCrystal_I2C.h></p>
+<p>#include <SoftwareSerial.h></p>
+<br>
+<p>// Pins</p>
+<p>const int LDR1 = A0;</p>
+<p>const int LDR2 = A1;</p>
+<p>const int servoPin = 9;</p>
+<p>const int espRx = 2;  // Arduino RX (to ESP TX)</p>
+<p>const int espTx = 3;  // Arduino TX (to ESP RX)</p>
+<br>
+<p>Servo solarServo;</p>
+<p>LiquidCrystal_I2C lcd(0x27, 16, 2);</p>
+<p>SoftwareSerial espSerial(espRx, espTx);</p>
+<br>
+<p>int servoPos = 90; // Start at mid-position</p>
+<br>
+<p>void setup() {</p>
+  <p>&nbsp;&nbsp;Serial.begin(9600);</p>
+  <p>&nbsp;&nbsp;espSerial.begin(115200);</p>
+  <p>&nbsp;&nbsp;solarServo.attach(servoPin);</p>
+  <p>&nbsp;&nbsp;solarServo.write(servoPos);</p>
+  <p>&nbsp;&nbsp;lcd.init();</p>
+  <p>&nbsp;&nbsp;lcd.backlight();</p>
+  <p>&nbsp;&nbsp;lcd.setCursor(0,0);</p>
+  <p>&nbsp;&nbsp;lcd.print("Solar Tracker");</p>
+  <p>&nbsp;&nbsp;delay(2000);</p>
+<p>}</p>
+
+<p>void loop() {</p>
+  <p>&nbsp;&nbsp;int ldrValue1 = analogRead(LDR1);</p>
+  <p>&nbsp;&nbsp;int ldrValue2 = analogRead(LDR2);</p>
+  <p>&nbsp;&nbsp;int error = ldrValue1 - ldrValue2;</p>
+  <br>
+  <p>&nbsp;&nbsp;if(abs(error) > 20) { // Threshold to avoid jitter</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbspif(error > 0 && servoPos < 180) {</p>
+      <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbspservoPos += 1;</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp} else if(error < 0 && servoPos > 0) {</p>
+      <p>&nbsp;&nbsp;&nbsp;&nbsp;servoPos -= 1;</p>
+    <p>&nbsp;&nbsp;&nbsp;}</p>
+    <p>&nbsp;&nbsp;&nbsp;solarServo.write(servoPos);</p>
+  <p>&nbsp;&nbsp;}</p>
+  <br>
+  <p>&nbsp;&nbsp;// Display readings</p>
+  <p>&nbsp;&nbsp;lcd.clear();</p>
+  <p>&nbsp;&nbsp;lcd.setCursor(0,0);</p>
+  <p>&nbsp;&nbsp;lcd.print("LDR1:");</p>
+  <p>&nbsp;&nbsp;lcd.print(ldrValue1);</p>
+  <p>&nbsp;&nbsp;lcd.setCursor(0,1);</p>
+  <p>&nbsp;&nbsp;lcd.print("LDR2:");</p>
+  <p>&nbsp;&nbsp;lcd.print(ldrValue2);</p>
+  <br>
+  <p>&nbsp;&nbsp;// Send data to ESP for web monitoring</p>
+  <p>&nbsp;&nbsp;espSerial.print("LDR1:");</p>
+  <p>&nbsp;&nbsp;espSerial.print(ldrValue1);</p>
+  <p>&nbsp;&nbsp;espSerial.print(",LDR2:");</p>
+  <p>&nbsp;&nbsp;espSerial.print(ldrValue2);</p>
+  <p>&nbsp;&nbsp;espSerial.print(",ServoPos:");</p>
+  <p>&nbsp;&nbsp;espSerial.println(servoPos);</p>
+  <br>
+  <p>&nbsp;&nbsp;delay(500);</p>
+<p>}</p>
+</p>
+<br>
+<p>Note: This code is a simplified version. Actual implementations may include error handling, Wi-Fi connection management, and enhanced smoothing algorithms.</p>
+<h2>F) Future Scopes of the Project</h2>
+    <p>
+      <span class="bold">•	Use of Two Servo Motors:  </span>Future enhancements can include two-axis tracking using two servo motors—one for horizontal (azimuth) and one for vertical (elevation) movement—allowing the solar panel to follow the sun’s path more precisely throughout the year.
+    </p>
+    <br>
+    <p>
+      <span class="bold">•	Advanced ESP01 Usage:  </span>Upgrading the ESP01 to support MQTT or HTTP protocols can improve integration with IoT platforms. Implementing cloud connectivity allows users to analyze historical data, predict energy output, and receive maintenance alerts via mobile apps.
+    </p>
+    <br>
+    <p>
+      <span class="bold">•	Energy Storage Integration: </span>Combining the tracker with battery systems and smart charge controllers will enable autonomous solar energy storage, making the system useful during nighttime or cloudy weather.
+    </p>
+    <br>
+    <p>
+      <span class="bold">•	Machine Learning Algorithms: </span>Incorporating ML to predict sun paths and optimize tracking based on weather forecasts and geographical data can increase efficiency and reduce mechanical wear.
+    </p>
+    <br>
+    <p>
+      <span class="bold">•	Scalability:</span>The design can be scaled to larger panels and industrial-grade components, making it viable for commercial solar farms.
+    </p>
+    <br>
+    <p>for project details, download the pdf below...</p>
+    <br>
+    <br>
+  <a href="https://drive.google.com/file/d/16_BORai4rg53CQrRrqLh7IbuaWDlC4_d/view?usp=sharing"target="_main"> "https://drive.google.com/file/d/16_BORai4rg53CQrRrqLh7IbuaWDlC4_d/view?usp=sharing"</a>
+
+  <nav class="bottom-nav">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  
+</body>
+</html>

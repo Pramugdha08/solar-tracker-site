@@ -1,0 +1,186 @@
+/*for navbar*/
+#navbar {
+    position: fixed;
+    background-color: black;
+    width: 70%;
+    display: flex;
+    border-radius: 20px;       
+    margin-left: 220px;
+    margin-top: 20px;
+    height: 60px;
+} 
+
+/*alignment of navbar content*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/*for navbar content*/
+button {
+    margin-right: 25px;
+    margin-left: 80px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    font-size: 14px;
+    display: inline-block;
+    color: white;
+    background-color: black;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* index page background */
+body.page-index {
+  background: url('https://i.postimg.cc/KzsJzkyQ/SURYANVESHAKAH3.png') no-repeat center center fixed;
+  background-size: cover;
+}
+
+body.page-intro {
+  background: url('https://img.pikbest.com/ai/illus_our/20230427/b1005185ba2f2a8b1488d98ae13a381c.jpg%21w700wp') no-repeat center center fixed;
+  background-size: cover;
+}
+
+body.page-history {
+  background: url('https://img.pikbest.com/ai/illus_our/20230427/b1005185ba2f2a8b1488d98ae13a381c.jpg%21w700wp') no-repeat center center fixed;
+  background-size: cover;
+}
+
+body.page-use {
+  background: url('https://img.pikbest.com/ai/illus_our/20230427/b1005185ba2f2a8b1488d98ae13a381c.jpg%21w700wp') no-repeat center center fixed;
+  background-size: cover;
+}
+
+body.page-need {
+  background: url('https://img.pikbest.com/ai/illus_our/20230427/b1005185ba2f2a8b1488d98ae13a381c.jpg%21w700wp') no-repeat center center fixed;
+  background-size: cover;
+}
+
+body.page-app {
+  background: url('https://img.pikbest.com/ai/illus_our/20230427/b1005185ba2f2a8b1488d98ae13a381c.jpg%21w700wp') no-repeat center center fixed;
+  background-size: cover;
+}
+
+body.page-project {
+  background: url('https://img.pikbest.com/ai/illus_our/20230427/b1005185ba2f2a8b1488d98ae13a381c.jpg%21w700wp') no-repeat center center fixed;
+  background-size: cover;
+}
+
+
+.bottom-nav {
+  margin-top: 60%;
+  width: 1500px;
+  height: 70px;
+  background: #333;
+  display: flex;
+  margin-left: 15px;
+  justify-content: space-around; /*alignment of home,about,contact*/
+}
+
+.bottom-nav a {
+  color: white;
+  padding: 14px;
+  text-decoration: line-through;
+  text-align: center;
+  font-size: 25px;
+}
+
+H1 {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  padding: 2rem;
+  color: white;
+}
+
+h2 {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  padding: 2rem;
+  color: white;
+}
+
+h3 {
+  color: white;
+  text-decoration: underline;
+  margin-left: 20px;
+}
+
+hi {
+  font-weight: bolder;
+  color: darkolivegreen;
+}
+
+p {
+  font-size: 20px;
+  font-weight: lighter;
+  text-align: left;
+  color: burlywood;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+b {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.bold {
+  font-weight: bold;
+  color: coral;
+  font-size: 20px;
+}
+
+table.bordered {
+  border-collapse: collapse; 
+  width: 50%;
+  margin-left: 300px;
+  background-color: black;
+}
+
+table.bordered th,
+table.bordered td {
+  border: 2px solid whitesmoke; 
+  padding: 8px; 
+  color: darkkhaki;         
+}
+
+.project {
+  text-align: left;
+}
+
+
+/*for the extra added photo*/
+#box {
+  margin: 10px;
+  padding: 50px;
+  width: 10%;
+  border-width: 10px;
+  text-align: center;
+  color: aliceblue;
+  display: inline-block;
+  margin-right: 200px;
+}
+
+a {
+  color: whitesmoke;
+  margin-left: 400px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
